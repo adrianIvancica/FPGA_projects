@@ -1,0 +1,793 @@
+// Copyright (C) 2020  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus Prime"
+// VERSION "Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition"
+
+// DATE "03/28/2024 15:10:16"
+
+// 
+// Device: Altera 5CSEMA5F31C6 Package FBGA896
+// 
+
+// 
+// This Verilog file should be used for ModelSim (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module DAG_top (
+	DMD,
+	clk,
+	reverse_bit,
+	sel);
+output 	[15:0] DMD;
+input 	clk;
+input 	reverse_bit;
+input 	[6:0] sel;
+
+// Design Ports Information
+// reverse_bit	=>  Location: PIN_AA24,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// sel[0]	=>  Location: PIN_AD25,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// sel[1]	=>  Location: PIN_AD7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// sel[2]	=>  Location: PIN_AC22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DMD[0]	=>  Location: PIN_V16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DMD[1]	=>  Location: PIN_W16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DMD[2]	=>  Location: PIN_V17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DMD[3]	=>  Location: PIN_V18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DMD[4]	=>  Location: PIN_W17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DMD[5]	=>  Location: PIN_W19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DMD[6]	=>  Location: PIN_Y19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DMD[7]	=>  Location: PIN_W20,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DMD[8]	=>  Location: PIN_W21,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DMD[9]	=>  Location: PIN_Y21,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DMD[10]	=>  Location: PIN_AJ17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DMD[11]	=>  Location: PIN_AG18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DMD[12]	=>  Location: PIN_AH19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DMD[13]	=>  Location: PIN_AK18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DMD[14]	=>  Location: PIN_AH18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DMD[15]	=>  Location: PIN_AA16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clk	=>  Location: PIN_AA14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// sel[5]	=>  Location: PIN_AF9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// sel[6]	=>  Location: PIN_AF10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// sel[3]	=>  Location: PIN_AB12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// sel[4]	=>  Location: PIN_AC12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \reverse_bit~input_o ;
+wire \sel[0]~input_o ;
+wire \sel[1]~input_o ;
+wire \sel[2]~input_o ;
+wire \DMD[0]~input_o ;
+wire \DMD[1]~input_o ;
+wire \DMD[2]~input_o ;
+wire \DMD[3]~input_o ;
+wire \DMD[4]~input_o ;
+wire \DMD[5]~input_o ;
+wire \DMD[6]~input_o ;
+wire \DMD[7]~input_o ;
+wire \DMD[8]~input_o ;
+wire \DMD[9]~input_o ;
+wire \DMD[10]~input_o ;
+wire \DMD[11]~input_o ;
+wire \DMD[12]~input_o ;
+wire \DMD[13]~input_o ;
+wire \DMD[14]~input_o ;
+wire \DMD[15]~input_o ;
+wire \clk~input_o ;
+wire \clk~inputCLKENA0_outclk ;
+wire \~GND~combout ;
+wire \sel[6]~input_o ;
+wire \sel[5]~input_o ;
+wire \MUX3|output~0_combout ;
+wire \sel[3]~input_o ;
+wire \sel[4]~input_o ;
+wire \memoryunit|altsyncram_component|auto_generated|ram_block1a0~portadataout ;
+wire \memoryunit|altsyncram_component|auto_generated|ram_block1a1 ;
+wire \memoryunit|altsyncram_component|auto_generated|ram_block1a2 ;
+wire \memoryunit|altsyncram_component|auto_generated|ram_block1a3 ;
+wire \memoryunit|altsyncram_component|auto_generated|ram_block1a4 ;
+wire \memoryunit|altsyncram_component|auto_generated|ram_block1a5 ;
+wire \memoryunit|altsyncram_component|auto_generated|ram_block1a6 ;
+wire \memoryunit|altsyncram_component|auto_generated|ram_block1a7 ;
+wire \memoryunit|altsyncram_component|auto_generated|ram_block1a8 ;
+wire \memoryunit|altsyncram_component|auto_generated|ram_block1a9 ;
+wire \memoryunit|altsyncram_component|auto_generated|ram_block1a10 ;
+wire \memoryunit|altsyncram_component|auto_generated|ram_block1a11 ;
+wire \memoryunit|altsyncram_component|auto_generated|ram_block1a12 ;
+wire \memoryunit|altsyncram_component|auto_generated|ram_block1a13 ;
+wire \memoryunit|altsyncram_component|auto_generated|ram_block1a14 ;
+wire \memoryunit|altsyncram_component|auto_generated|ram_block1a15 ;
+
+wire [19:0] \memoryunit|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus ;
+
+assign \memoryunit|altsyncram_component|auto_generated|ram_block1a0~portadataout  = \memoryunit|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [0];
+assign \memoryunit|altsyncram_component|auto_generated|ram_block1a1  = \memoryunit|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [1];
+assign \memoryunit|altsyncram_component|auto_generated|ram_block1a2  = \memoryunit|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [2];
+assign \memoryunit|altsyncram_component|auto_generated|ram_block1a3  = \memoryunit|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [3];
+assign \memoryunit|altsyncram_component|auto_generated|ram_block1a4  = \memoryunit|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [4];
+assign \memoryunit|altsyncram_component|auto_generated|ram_block1a5  = \memoryunit|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [5];
+assign \memoryunit|altsyncram_component|auto_generated|ram_block1a6  = \memoryunit|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [6];
+assign \memoryunit|altsyncram_component|auto_generated|ram_block1a7  = \memoryunit|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [7];
+assign \memoryunit|altsyncram_component|auto_generated|ram_block1a8  = \memoryunit|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [8];
+assign \memoryunit|altsyncram_component|auto_generated|ram_block1a9  = \memoryunit|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [9];
+assign \memoryunit|altsyncram_component|auto_generated|ram_block1a10  = \memoryunit|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [10];
+assign \memoryunit|altsyncram_component|auto_generated|ram_block1a11  = \memoryunit|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [11];
+assign \memoryunit|altsyncram_component|auto_generated|ram_block1a12  = \memoryunit|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [12];
+assign \memoryunit|altsyncram_component|auto_generated|ram_block1a13  = \memoryunit|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [13];
+assign \memoryunit|altsyncram_component|auto_generated|ram_block1a14  = \memoryunit|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [14];
+assign \memoryunit|altsyncram_component|auto_generated|ram_block1a15  = \memoryunit|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus [15];
+
+// Location: IOOBUF_X52_Y0_N2
+cyclonev_io_obuf \DMD[0]~output (
+	.i(\memoryunit|altsyncram_component|auto_generated|ram_block1a0~portadataout ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(DMD[0]),
+	.obar());
+// synopsys translate_off
+defparam \DMD[0]~output .bus_hold = "false";
+defparam \DMD[0]~output .open_drain_output = "false";
+defparam \DMD[0]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X52_Y0_N19
+cyclonev_io_obuf \DMD[1]~output (
+	.i(\memoryunit|altsyncram_component|auto_generated|ram_block1a1 ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(DMD[1]),
+	.obar());
+// synopsys translate_off
+defparam \DMD[1]~output .bus_hold = "false";
+defparam \DMD[1]~output .open_drain_output = "false";
+defparam \DMD[1]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X60_Y0_N2
+cyclonev_io_obuf \DMD[2]~output (
+	.i(\memoryunit|altsyncram_component|auto_generated|ram_block1a2 ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(DMD[2]),
+	.obar());
+// synopsys translate_off
+defparam \DMD[2]~output .bus_hold = "false";
+defparam \DMD[2]~output .open_drain_output = "false";
+defparam \DMD[2]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X80_Y0_N2
+cyclonev_io_obuf \DMD[3]~output (
+	.i(\memoryunit|altsyncram_component|auto_generated|ram_block1a3 ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(DMD[3]),
+	.obar());
+// synopsys translate_off
+defparam \DMD[3]~output .bus_hold = "false";
+defparam \DMD[3]~output .open_drain_output = "false";
+defparam \DMD[3]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X60_Y0_N19
+cyclonev_io_obuf \DMD[4]~output (
+	.i(\memoryunit|altsyncram_component|auto_generated|ram_block1a4 ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(DMD[4]),
+	.obar());
+// synopsys translate_off
+defparam \DMD[4]~output .bus_hold = "false";
+defparam \DMD[4]~output .open_drain_output = "false";
+defparam \DMD[4]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X80_Y0_N19
+cyclonev_io_obuf \DMD[5]~output (
+	.i(\memoryunit|altsyncram_component|auto_generated|ram_block1a5 ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(DMD[5]),
+	.obar());
+// synopsys translate_off
+defparam \DMD[5]~output .bus_hold = "false";
+defparam \DMD[5]~output .open_drain_output = "false";
+defparam \DMD[5]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X84_Y0_N2
+cyclonev_io_obuf \DMD[6]~output (
+	.i(\memoryunit|altsyncram_component|auto_generated|ram_block1a6 ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(DMD[6]),
+	.obar());
+// synopsys translate_off
+defparam \DMD[6]~output .bus_hold = "false";
+defparam \DMD[6]~output .open_drain_output = "false";
+defparam \DMD[6]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X89_Y6_N5
+cyclonev_io_obuf \DMD[7]~output (
+	.i(\memoryunit|altsyncram_component|auto_generated|ram_block1a7 ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(DMD[7]),
+	.obar());
+// synopsys translate_off
+defparam \DMD[7]~output .bus_hold = "false";
+defparam \DMD[7]~output .open_drain_output = "false";
+defparam \DMD[7]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X89_Y8_N5
+cyclonev_io_obuf \DMD[8]~output (
+	.i(\memoryunit|altsyncram_component|auto_generated|ram_block1a8 ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(DMD[8]),
+	.obar());
+// synopsys translate_off
+defparam \DMD[8]~output .bus_hold = "false";
+defparam \DMD[8]~output .open_drain_output = "false";
+defparam \DMD[8]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X89_Y6_N22
+cyclonev_io_obuf \DMD[9]~output (
+	.i(\memoryunit|altsyncram_component|auto_generated|ram_block1a9 ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(DMD[9]),
+	.obar());
+// synopsys translate_off
+defparam \DMD[9]~output .bus_hold = "false";
+defparam \DMD[9]~output .open_drain_output = "false";
+defparam \DMD[9]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X58_Y0_N42
+cyclonev_io_obuf \DMD[10]~output (
+	.i(\memoryunit|altsyncram_component|auto_generated|ram_block1a10 ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(DMD[10]),
+	.obar());
+// synopsys translate_off
+defparam \DMD[10]~output .bus_hold = "false";
+defparam \DMD[10]~output .open_drain_output = "false";
+defparam \DMD[10]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X58_Y0_N76
+cyclonev_io_obuf \DMD[11]~output (
+	.i(\memoryunit|altsyncram_component|auto_generated|ram_block1a11 ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(DMD[11]),
+	.obar());
+// synopsys translate_off
+defparam \DMD[11]~output .bus_hold = "false";
+defparam \DMD[11]~output .open_drain_output = "false";
+defparam \DMD[11]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X58_Y0_N93
+cyclonev_io_obuf \DMD[12]~output (
+	.i(\memoryunit|altsyncram_component|auto_generated|ram_block1a12 ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(DMD[12]),
+	.obar());
+// synopsys translate_off
+defparam \DMD[12]~output .bus_hold = "false";
+defparam \DMD[12]~output .open_drain_output = "false";
+defparam \DMD[12]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X58_Y0_N59
+cyclonev_io_obuf \DMD[13]~output (
+	.i(\memoryunit|altsyncram_component|auto_generated|ram_block1a13 ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(DMD[13]),
+	.obar());
+// synopsys translate_off
+defparam \DMD[13]~output .bus_hold = "false";
+defparam \DMD[13]~output .open_drain_output = "false";
+defparam \DMD[13]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X56_Y0_N53
+cyclonev_io_obuf \DMD[14]~output (
+	.i(\memoryunit|altsyncram_component|auto_generated|ram_block1a14 ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(DMD[14]),
+	.obar());
+// synopsys translate_off
+defparam \DMD[14]~output .bus_hold = "false";
+defparam \DMD[14]~output .open_drain_output = "false";
+defparam \DMD[14]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X56_Y0_N2
+cyclonev_io_obuf \DMD[15]~output (
+	.i(\memoryunit|altsyncram_component|auto_generated|ram_block1a15 ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(DMD[15]),
+	.obar());
+// synopsys translate_off
+defparam \DMD[15]~output .bus_hold = "false";
+defparam \DMD[15]~output .open_drain_output = "false";
+defparam \DMD[15]~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X36_Y0_N1
+cyclonev_io_ibuf \clk~input (
+	.i(clk),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\clk~input_o ));
+// synopsys translate_off
+defparam \clk~input .bus_hold = "false";
+defparam \clk~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: CLKCTRL_G6
+cyclonev_clkena \clk~inputCLKENA0 (
+	.inclk(\clk~input_o ),
+	.ena(vcc),
+	.outclk(\clk~inputCLKENA0_outclk ),
+	.enaout());
+// synopsys translate_off
+defparam \clk~inputCLKENA0 .clock_type = "global clock";
+defparam \clk~inputCLKENA0 .disable_mode = "low";
+defparam \clk~inputCLKENA0 .ena_register_mode = "always enabled";
+defparam \clk~inputCLKENA0 .ena_register_power_up = "high";
+defparam \clk~inputCLKENA0 .test_syn = "high";
+// synopsys translate_on
+
+// Location: LABCELL_X57_Y2_N36
+cyclonev_lcell_comb \~GND (
+// Equation(s):
+// \~GND~combout  = GND
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\~GND~combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \~GND .extended_lut = "off";
+defparam \~GND .lut_mask = 64'h0000000000000000;
+defparam \~GND .shared_arith = "off";
+// synopsys translate_on
+
+// Location: IOIBUF_X4_Y0_N52
+cyclonev_io_ibuf \sel[6]~input (
+	.i(sel[6]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\sel[6]~input_o ));
+// synopsys translate_off
+defparam \sel[6]~input .bus_hold = "false";
+defparam \sel[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X8_Y0_N35
+cyclonev_io_ibuf \sel[5]~input (
+	.i(sel[5]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\sel[5]~input_o ));
+// synopsys translate_off
+defparam \sel[5]~input .bus_hold = "false";
+defparam \sel[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LABCELL_X42_Y2_N48
+cyclonev_lcell_comb \MUX3|output~0 (
+// Equation(s):
+// \MUX3|output~0_combout  = ( \sel[6]~input_o  & ( \sel[5]~input_o  ) ) # ( !\sel[6]~input_o  & ( !\sel[5]~input_o  ) )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(!\sel[6]~input_o ),
+	.dataf(!\sel[5]~input_o ),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\MUX3|output~0_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \MUX3|output~0 .extended_lut = "off";
+defparam \MUX3|output~0 .lut_mask = 64'hFFFF00000000FFFF;
+defparam \MUX3|output~0 .shared_arith = "off";
+// synopsys translate_on
+
+// Location: IOIBUF_X12_Y0_N18
+cyclonev_io_ibuf \sel[3]~input (
+	.i(sel[3]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\sel[3]~input_o ));
+// synopsys translate_off
+defparam \sel[3]~input .bus_hold = "false";
+defparam \sel[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X16_Y0_N1
+cyclonev_io_ibuf \sel[4]~input (
+	.i(sel[4]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\sel[4]~input_o ));
+// synopsys translate_off
+defparam \sel[4]~input .bus_hold = "false";
+defparam \sel[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: M10K_X58_Y2_N0
+cyclonev_ram_block \memoryunit|altsyncram_component|auto_generated|ram_block1a0 (
+	.portawe(gnd),
+	.portare(vcc),
+	.portaaddrstall(gnd),
+	.portbwe(gnd),
+	.portbre(vcc),
+	.portbaddrstall(gnd),
+	.clk0(\clk~inputCLKENA0_outclk ),
+	.clk1(gnd),
+	.ena0(vcc),
+	.ena1(vcc),
+	.ena2(vcc),
+	.ena3(vcc),
+	.clr0(gnd),
+	.clr1(gnd),
+	.nerror(vcc),
+	.portadatain({gnd,gnd,gnd,gnd,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,\~GND~combout ,vcc,\~GND~combout }),
+	.portaaddr({\sel[4]~input_o ,\sel[3]~input_o ,\sel[6]~input_o ,\MUX3|output~0_combout ,\~GND~combout }),
+	.portabyteenamasks(1'b1),
+	.portbdatain(20'b00000000000000000000),
+	.portbaddr(5'b00000),
+	.portbbyteenamasks(1'b1),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.portadataout(\memoryunit|altsyncram_component|auto_generated|ram_block1a0_PORTADATAOUT_bus ),
+	.portbdataout(),
+	.eccstatus(),
+	.dftout());
+// synopsys translate_off
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .clk0_core_clock_enable = "ena0";
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .data_interleave_offset_in_bits = 1;
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .data_interleave_width_in_bits = 1;
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .init_file = "memory.mif";
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .init_file_layout = "port_a";
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .logical_ram_name = "testMEM:memoryunit|altsyncram:altsyncram_component|altsyncram_nn14:auto_generated|ALTSYNCRAM";
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .operation_mode = "single_port";
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .port_a_address_clear = "none";
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .port_a_address_width = 5;
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .port_a_byte_enable_clock = "none";
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .port_a_data_out_clear = "none";
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .port_a_data_out_clock = "clock0";
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .port_a_data_width = 20;
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .port_a_first_address = 0;
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .port_a_first_bit_number = 0;
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .port_a_last_address = 31;
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .port_a_logical_ram_depth = 16384;
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .port_a_logical_ram_width = 16;
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .port_a_read_during_write_mode = "new_data_no_nbe_read";
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .port_b_address_width = 5;
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .port_b_data_width = 20;
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .ram_block_type = "M20K";
+defparam \memoryunit|altsyncram_component|auto_generated|ram_block1a0 .mem_init0 = "0000000000000000001C00000000000000000018000000001600000000000000000000000000001000000000000000000000000000000A00000000080000000006000000000400000000020000000000";
+// synopsys translate_on
+
+// Location: IOIBUF_X89_Y11_N44
+cyclonev_io_ibuf \reverse_bit~input (
+	.i(reverse_bit),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\reverse_bit~input_o ));
+// synopsys translate_off
+defparam \reverse_bit~input .bus_hold = "false";
+defparam \reverse_bit~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X89_Y4_N44
+cyclonev_io_ibuf \sel[0]~input (
+	.i(sel[0]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\sel[0]~input_o ));
+// synopsys translate_off
+defparam \sel[0]~input .bus_hold = "false";
+defparam \sel[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X6_Y0_N1
+cyclonev_io_ibuf \sel[1]~input (
+	.i(sel[1]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\sel[1]~input_o ));
+// synopsys translate_off
+defparam \sel[1]~input .bus_hold = "false";
+defparam \sel[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X86_Y0_N1
+cyclonev_io_ibuf \sel[2]~input (
+	.i(sel[2]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\sel[2]~input_o ));
+// synopsys translate_off
+defparam \sel[2]~input .bus_hold = "false";
+defparam \sel[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X52_Y0_N1
+cyclonev_io_ibuf \DMD[0]~input (
+	.i(DMD[0]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\DMD[0]~input_o ));
+// synopsys translate_off
+defparam \DMD[0]~input .bus_hold = "false";
+defparam \DMD[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X52_Y0_N18
+cyclonev_io_ibuf \DMD[1]~input (
+	.i(DMD[1]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\DMD[1]~input_o ));
+// synopsys translate_off
+defparam \DMD[1]~input .bus_hold = "false";
+defparam \DMD[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X60_Y0_N1
+cyclonev_io_ibuf \DMD[2]~input (
+	.i(DMD[2]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\DMD[2]~input_o ));
+// synopsys translate_off
+defparam \DMD[2]~input .bus_hold = "false";
+defparam \DMD[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X80_Y0_N1
+cyclonev_io_ibuf \DMD[3]~input (
+	.i(DMD[3]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\DMD[3]~input_o ));
+// synopsys translate_off
+defparam \DMD[3]~input .bus_hold = "false";
+defparam \DMD[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X60_Y0_N18
+cyclonev_io_ibuf \DMD[4]~input (
+	.i(DMD[4]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\DMD[4]~input_o ));
+// synopsys translate_off
+defparam \DMD[4]~input .bus_hold = "false";
+defparam \DMD[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X80_Y0_N18
+cyclonev_io_ibuf \DMD[5]~input (
+	.i(DMD[5]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\DMD[5]~input_o ));
+// synopsys translate_off
+defparam \DMD[5]~input .bus_hold = "false";
+defparam \DMD[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X84_Y0_N1
+cyclonev_io_ibuf \DMD[6]~input (
+	.i(DMD[6]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\DMD[6]~input_o ));
+// synopsys translate_off
+defparam \DMD[6]~input .bus_hold = "false";
+defparam \DMD[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X89_Y6_N4
+cyclonev_io_ibuf \DMD[7]~input (
+	.i(DMD[7]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\DMD[7]~input_o ));
+// synopsys translate_off
+defparam \DMD[7]~input .bus_hold = "false";
+defparam \DMD[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X89_Y8_N4
+cyclonev_io_ibuf \DMD[8]~input (
+	.i(DMD[8]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\DMD[8]~input_o ));
+// synopsys translate_off
+defparam \DMD[8]~input .bus_hold = "false";
+defparam \DMD[8]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X89_Y6_N21
+cyclonev_io_ibuf \DMD[9]~input (
+	.i(DMD[9]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\DMD[9]~input_o ));
+// synopsys translate_off
+defparam \DMD[9]~input .bus_hold = "false";
+defparam \DMD[9]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X58_Y0_N41
+cyclonev_io_ibuf \DMD[10]~input (
+	.i(DMD[10]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\DMD[10]~input_o ));
+// synopsys translate_off
+defparam \DMD[10]~input .bus_hold = "false";
+defparam \DMD[10]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X58_Y0_N75
+cyclonev_io_ibuf \DMD[11]~input (
+	.i(DMD[11]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\DMD[11]~input_o ));
+// synopsys translate_off
+defparam \DMD[11]~input .bus_hold = "false";
+defparam \DMD[11]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X58_Y0_N92
+cyclonev_io_ibuf \DMD[12]~input (
+	.i(DMD[12]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\DMD[12]~input_o ));
+// synopsys translate_off
+defparam \DMD[12]~input .bus_hold = "false";
+defparam \DMD[12]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X58_Y0_N58
+cyclonev_io_ibuf \DMD[13]~input (
+	.i(DMD[13]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\DMD[13]~input_o ));
+// synopsys translate_off
+defparam \DMD[13]~input .bus_hold = "false";
+defparam \DMD[13]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X56_Y0_N52
+cyclonev_io_ibuf \DMD[14]~input (
+	.i(DMD[14]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\DMD[14]~input_o ));
+// synopsys translate_off
+defparam \DMD[14]~input .bus_hold = "false";
+defparam \DMD[14]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X56_Y0_N1
+cyclonev_io_ibuf \DMD[15]~input (
+	.i(DMD[15]),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\DMD[15]~input_o ));
+// synopsys translate_off
+defparam \DMD[15]~input .bus_hold = "false";
+defparam \DMD[15]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+endmodule

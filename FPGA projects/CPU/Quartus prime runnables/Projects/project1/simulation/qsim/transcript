@@ -1,0 +1,31 @@
+# do memory.do
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:24:55 on Mar 28,2024
+# vcom -work work memory.vho 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package altera_lnsim_components
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package cyclonev_atom_pack
+# -- Loading package cyclonev_components
+# -- Compiling entity DAG_top
+# -- Compiling architecture structure of DAG_top
+# End time: 16:24:55 on Mar 28,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:24:55 on Mar 28,2024
+# vcom -work work Waveform.vwf.vht 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity DAG_top_vhd_vec_tst
+# -- Compiling architecture DAG_top_arch of DAG_top_vhd_vec_tst
+# End time: 16:24:55 on Mar 28,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Error (suppressible): (vsim-SDF-3196) Failed to find SDF file "memory_vhd.sdo".
+# Use the -help option for complete vsim usage.
+# vsim -novopt -c -t 1ps -sdfmax "DAG_top_vhd_vec_tst/i1=memory_vhd.sdo" -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.DAG_top_vhd_vec_tst 
+# Error loading design
+# Errors: 1, Warnings: 0

@@ -1,0 +1,103 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Adrian/OneDrive - University of Miami/ECE 455/Projects/project1/simulation/qsim
+Edag_top
+Z1 w1711657493
+Z2 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z3 DPx8 cyclonev 18 cyclonev_atom_pack 0 22 3HQPc5MVbmOPN?>a5EBYj2
+Z4 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z5 DPx8 cyclonev 19 cyclonev_components 0 22 jZ]H46BQLgIP5mfRTO`3B1
+Z6 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z7 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+Z8 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 ^Ch;U@;bMk1;>A2B<UV`k2
+!i122 0
+R0
+Z9 8memory.vho
+Z10 Fmemory.vho
+l0
+L37 1
+VRb[5bnNA9e7S@R?UkGD0i0
+!s100 N5cn7GCeaCzN=8PT9fDoK0
+Z11 OV;C;2020.1;71
+32
+Z12 !s110 1711657495
+!i10b 1
+Z13 !s108 1711657495.000000
+Z14 !s90 -work|work|memory.vho|
+Z15 !s107 memory.vho|
+!i113 1
+Z16 o-work work
+Z17 tExplicit 1 CvgOpt 0
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+DEx4 work 7 dag_top 0 22 Rb[5bnNA9e7S@R?UkGD0i0
+!i122 0
+l138
+L74 680
+V]SCocQ]ZR<h94=fLKeNB?1
+!s100 ojmLBa^5ZMf6k<]la<4jW0
+R11
+32
+R12
+!i10b 1
+R13
+R14
+R15
+!i113 1
+R16
+R17
+Edag_top_vhd_vec_tst
+Z18 w1711657492
+R6
+R7
+!i122 1
+R0
+Z19 8Waveform.vwf.vht
+Z20 FWaveform.vwf.vht
+l0
+L32 1
+ViSdjBRGc=Zhg8OXA8a3[[2
+!s100 oMCLE:2>2ngYT7A5>1V6e1
+R11
+32
+R12
+!i10b 1
+R13
+Z21 !s90 -work|work|Waveform.vwf.vht|
+!s107 Waveform.vwf.vht|
+!i113 1
+R16
+R17
+Adag_top_arch
+R6
+R7
+DEx4 work 19 dag_top_vhd_vec_tst 0 22 iSdjBRGc=Zhg8OXA8a3[[2
+!i122 1
+l49
+L34 170
+VFY<NA6K5AcY;5<mc<>94e3
+!s100 ?mBX@eehCi`7A5[D^]J<[3
+R11
+32
+R12
+!i10b 1
+R13
+R21
+Z22 !s107 Waveform.vwf.vht|
+!i113 1
+R16
+R17
