@@ -1,0 +1,28 @@
+
+quit -sim
+
+vsim -gui work.shiftarray
+add wave -position end sim:/shiftarray/*
+force -freeze sim:/shiftarray/C 11111011 0
+force -freeze sim:/shiftarray/input 1011011010100011 0
+force -freeze sim:/shiftarray/highlow 1 0
+force -freeze sim:/shiftarray/x 0 0
+run 100 ps
+force -freeze sim:/shiftarray/C 00000101 0
+run 100 ps
+force -freeze sim:/shiftarray/x 1 0
+force -freeze sim:/shiftarray/C 11111011 0
+run 100 ps
+force -freeze sim:/shiftarray/highlow 0 0
+run 100 ps
+
+force -freeze sim:/orpass/sROR 0 0
+force -freeze sim:/orpass/input2 00000000000000000000000000000000 0
+force -freeze sim:/orpass/input1 00000101101101010001100000000000 0
+run 100 ps
+
+force -freeze sim:/orpass/sROR 1 0
+run 100 ps
+
+force -freeze sim:/orpass/input2 10000000000000000000000010000000 0
+run 100 ps

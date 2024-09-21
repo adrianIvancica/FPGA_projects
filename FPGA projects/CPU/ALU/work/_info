@@ -1,0 +1,601 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter
+Ealukernel
+Z0 w1707953776
+Z1 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 52
+Z5 dC:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU
+Z6 8C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/ALUKernel.vhd
+Z7 FC:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/ALUKernel.vhd
+l0
+L6 1
+VlfF?]OTQf2?b1d?7ah9EE3
+!s100 ]]LHEbLEKBa_]S]=3IDV]3
+Z8 OV;C;2020.1;71
+32
+Z9 !s110 1708019691
+!i10b 1
+Z10 !s108 1708019690.000000
+Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/ALUKernel.vhd|
+Z12 !s107 C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/ALUKernel.vhd|
+!i113 1
+Z13 o-work work -2002 -explicit
+Z14 tExplicit 1 CvgOpt 0
+Akernelalu
+R1
+R2
+R3
+R4
+DEx4 work 9 alukernel 0 22 lfF?]OTQf2?b1d?7ah9EE3
+!i122 52
+l20
+L16 97
+VMh_Y_O67>0F:[0BJ^1WR@3
+!s100 1bNY6D:5cTj8[R:ZDd42`0
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Ealuregister
+Z15 w1708020506
+R3
+R4
+!i122 60
+R5
+Z16 8C:\Users\Adrian\OneDrive - University of Miami\ECE 455\ALU\ALURegister.vhd
+Z17 FC:\Users\Adrian\OneDrive - University of Miami\ECE 455\ALU\ALURegister.vhd
+l0
+L6 1
+VliimGh29>?V9YfUOi7V2?3
+!s100 BV<Ze`bHYDXCcSI5b_4@H0
+R8
+32
+Z18 !s110 1708020509
+!i10b 1
+Z19 !s108 1708020509.000000
+Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\Adrian\OneDrive - University of Miami\ECE 455\ALU\ALURegister.vhd|
+Z21 !s107 C:\Users\Adrian\OneDrive - University of Miami\ECE 455\ALU\ALURegister.vhd|
+!i113 1
+R13
+R14
+Aarch_register16
+R3
+R4
+DEx4 work 11 aluregister 0 22 liimGh29>?V9YfUOi7V2?3
+!i122 60
+l15
+Z22 L13 16
+VTED0;_KHAho;A9D[dU7PS0
+!s100 [9l^098W17E7;C[;`AfOX0
+R8
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R13
+R14
+Ealutoplevel
+Z23 w1712272011
+R1
+R2
+R3
+R4
+!i122 83
+R5
+Z24 8C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/alutoplevel.vhd
+Z25 FC:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/alutoplevel.vhd
+l0
+L6 1
+V:KS0>lRJ;517MEeFTXZ3j3
+!s100 9Mf80EF7QhbakB>2jVWS63
+R8
+32
+Z26 !s110 1712272014
+!i10b 1
+Z27 !s108 1712272014.000000
+Z28 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/alutoplevel.vhd|
+Z29 !s107 C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/alutoplevel.vhd|
+!i113 1
+R13
+R14
+Aarch_toplevelalu
+R1
+R2
+R3
+R4
+Z30 DEx4 work 11 alutoplevel 0 22 :KS0>lRJ;517MEeFTXZ3j3
+!i122 83
+l88
+L26 140
+V0eMbaFRBi2VCYK_n1_dgO2
+!s100 VQA<B>QMjdhbfg7nMaD[_3
+R8
+32
+R26
+!i10b 1
+R27
+R28
+R29
+!i113 1
+R13
+R14
+Edisplay
+Z31 w1707864547
+R2
+R3
+R4
+Z32 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
+!i122 53
+R5
+Z33 8C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/Display.vhd
+Z34 FC:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/Display.vhd
+l0
+L5 1
+VhPcPUdb<MHJZC61kR2ZBO3
+!s100 ^T2VQ96d?6Wi]oB[>E9gJ3
+R8
+32
+R9
+!i10b 1
+Z35 !s108 1708019691.000000
+Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/Display.vhd|
+Z37 !s107 C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/Display.vhd|
+!i113 1
+R13
+R14
+Abehav_display
+R2
+R3
+R4
+R32
+DEx4 work 7 display 0 22 hPcPUdb<MHJZC61kR2ZBO3
+!i122 53
+l12
+L11 25
+VE<eo0ADQ2^V5IORX7IJja2
+!s100 2ACOF=QBC^2ea>XNe=D2W2
+R8
+32
+R9
+!i10b 1
+R35
+R36
+R37
+!i113 1
+R13
+R14
+Emultiplexer
+Z38 w1708020640
+R3
+R4
+!i122 62
+R5
+Z39 8C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/Multiplexer.vhd
+Z40 FC:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/Multiplexer.vhd
+l0
+L4 1
+VhKdg:V08CmcP89m5GmEXo0
+!s100 XdDdf=QY2FWcD=Il2`j9W0
+R8
+32
+Z41 !s110 1708020645
+!i10b 1
+Z42 !s108 1708020645.000000
+Z43 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/Multiplexer.vhd|
+Z44 !s107 C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/Multiplexer.vhd|
+!i113 1
+R13
+R14
+Aarch_mux2to1
+R3
+R4
+DEx4 work 11 multiplexer 0 22 hKdg:V08CmcP89m5GmEXo0
+!i122 62
+l13
+Z45 L11 12
+V:de_SeCi:Q?aA1]0o0e`50
+!s100 U`9kl^PlBjVS08823T3YY2
+R8
+32
+R41
+!i10b 1
+R42
+R43
+R44
+!i113 1
+R13
+R14
+Emux2to1
+Z46 w1707864324
+R3
+R4
+!i122 54
+R5
+R39
+R40
+l0
+L4 1
+V_]Q?9ccXfze96]SRleDX50
+!s100 Eh3>JTLX9]B>OP]3nmi:l0
+R8
+32
+R9
+!i10b 1
+R35
+R43
+R44
+!i113 1
+R13
+R14
+Aarch_mux2to1
+R3
+R4
+DEx4 work 7 mux2to1 0 22 _]Q?9ccXfze96]SRleDX50
+!i122 54
+l13
+R45
+VzBKBD8Heb7[>JBlYF]JnY2
+!s100 LQRT3g7DOX9zPUJXb:cSO3
+R8
+32
+R9
+!i10b 1
+R35
+R43
+R44
+!i113 1
+R13
+R14
+Emux2to1_nbit
+Z47 w1712271761
+R3
+R4
+!i122 82
+R5
+Z48 8C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/mux2to1.vhd
+Z49 FC:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/mux2to1.vhd
+l0
+L4 1
+V<h1W5TlfcT3zmZ08@6o@k2
+!s100 ilOQc_G@ec;1^CFDBfa6V0
+R8
+32
+Z50 !s110 1712271896
+!i10b 1
+Z51 !s108 1712271896.000000
+Z52 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/mux2to1.vhd|
+Z53 !s107 C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/mux2to1.vhd|
+!i113 1
+R13
+R14
+Aarch_mux
+R3
+R4
+DEx4 work 12 mux2to1_nbit 0 22 <h1W5TlfcT3zmZ08@6o@k2
+!i122 82
+l16
+L14 12
+V[[Zka83_9?V^GjjRl9Dz[1
+!s100 LT5Eo<4E;IT@?FSD7:fdJ2
+R8
+32
+R50
+!i10b 1
+R51
+R52
+R53
+!i113 1
+R13
+R14
+Eregister16
+Z54 w1707954312
+R3
+R4
+!i122 50
+R5
+Z55 8C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/ALURegister.vhd
+Z56 FC:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/ALURegister.vhd
+l0
+L6 1
+VP7>3<Nbg_78E[;?T[oXO;3
+!s100 VXN^m4fZmcWQUl[aQ4k9F1
+R8
+32
+Z57 !s110 1708019690
+!i10b 1
+R10
+Z58 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/ALURegister.vhd|
+Z59 !s107 C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/ALURegister.vhd|
+!i113 1
+R13
+R14
+Aarch_register16
+R3
+R4
+DEx4 work 10 register16 0 22 P7>3<Nbg_78E[;?T[oXO;3
+!i122 50
+l15
+R22
+VV^7@QG@DdzTWI<@aJX9el1
+!s100 j?7Oom[l6FgWgHS`iC9eG2
+R8
+32
+R57
+!i10b 1
+R10
+R58
+R59
+!i113 1
+R13
+R14
+Eregister_generic
+Z60 w1712263034
+R3
+R4
+!i122 74
+R5
+Z61 8C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/registerone.vhd
+Z62 FC:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/registerone.vhd
+l0
+L4 1
+VX8DW0fYEEbDD7_l<Wk44i0
+!s100 N]HcU:7ZBXg>fiZd0FVL61
+R8
+32
+Z63 !s110 1712264301
+!i10b 1
+Z64 !s108 1712264301.000000
+Z65 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/registerone.vhd|
+Z66 !s107 C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/registerone.vhd|
+!i113 1
+R13
+R14
+Aarch_register
+R3
+R4
+DEx4 work 16 register_generic 0 22 X8DW0fYEEbDD7_l<Wk44i0
+!i122 74
+l17
+L15 16
+VDc<]XU3XFL`B?foaeH79G2
+!s100 eLN?ZUlfghJJQ0aa64[<`0
+R8
+32
+R63
+!i10b 1
+R64
+R65
+R66
+!i113 1
+R13
+R14
+Etoplevelalu
+Z67 w1708019610
+R1
+R2
+R3
+R4
+!i122 49
+R5
+R24
+R25
+l0
+L6 1
+VZAe8F<8kR]Ji:dcc7nL8l1
+!s100 72VbOCQ80AbOBkT>aJdg<3
+R8
+32
+R57
+!i10b 1
+R10
+R28
+R29
+!i113 1
+R13
+R14
+Aarch_toplevelalu
+R1
+R2
+R3
+R4
+DEx4 work 11 toplevelalu 0 22 ZAe8F<8kR]Ji:dcc7nL8l1
+!i122 49
+l77
+L26 84
+Vko6R<gfIS6TXloGkT`Lfh2
+!s100 Oj:?^k76o:@zFzJzOmz1z1
+R8
+32
+R57
+!i10b 1
+R10
+R28
+R29
+!i113 1
+R13
+R14
+Etristate16
+Z68 w1707864419
+R3
+R4
+!i122 51
+R5
+Z69 8C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/TriStateBuffer.vhd
+Z70 FC:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/TriStateBuffer.vhd
+l0
+L4 1
+VN949O>Qb8G3M1DI0kM:fg1
+!s100 @5dI465KS6UafkIHEQgNb0
+R8
+32
+R57
+!i10b 1
+R10
+Z71 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/TriStateBuffer.vhd|
+Z72 !s107 C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/TriStateBuffer.vhd|
+!i113 1
+R13
+R14
+Aarch_tristate16
+R3
+R4
+DEx4 work 10 tristate16 0 22 N949O>Qb8G3M1DI0kM:fg1
+!i122 51
+l13
+Z73 L12 11
+VA@J;5idF]9HlJJTS;B`6a0
+!s100 fN`mS]^NA4HWlfdWR7[3Y1
+R8
+32
+R57
+!i10b 1
+R10
+R71
+R72
+!i113 1
+R13
+R14
+Etristate_buffer
+Z74 w1708627062
+R3
+R4
+!i122 75
+R5
+R69
+R70
+l0
+L4 1
+V9ccl6i^T7fYJcOYl9FMlI0
+!s100 VFPhe6T9aVgbYQ=NzTfEh1
+R8
+32
+Z75 !s110 1712264529
+!i10b 1
+Z76 !s108 1712264528.000000
+R71
+R72
+!i113 1
+R13
+R14
+Aarch_tristate16
+R3
+R4
+DEx4 work 15 tristate_buffer 0 22 9ccl6i^T7fYJcOYl9FMlI0
+!i122 75
+l13
+R73
+V7@<HVCUkU]S6Y`[i3mkQS1
+!s100 KDC9^XKYK85<VP[[?5PQ?2
+R8
+32
+R75
+!i10b 1
+R76
+R71
+R72
+!i113 1
+R13
+R14
+Etristate_generic
+Z77 w1712263040
+R3
+R4
+!i122 73
+R5
+Z78 8C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/tristate.vhd
+Z79 FC:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/tristate.vhd
+l0
+L4 1
+VlJhR6P7MzEo`gh3mLVSTM0
+!s100 Z6M5VSA0o4X@=3[m8KdEl3
+R8
+32
+Z80 !s110 1712264036
+!i10b 1
+Z81 !s108 1712264036.000000
+Z82 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/tristate.vhd|
+Z83 !s107 C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/tristate.vhd|
+!i113 1
+R13
+R14
+Aarch_tristate
+R3
+R4
+DEx4 work 16 tristate_generic 0 22 lJhR6P7MzEo`gh3mLVSTM0
+!i122 73
+l16
+L15 11
+VzQ^lhKCgX<]7F`DM`0U3X1
+!s100 06U_B]zC>B8SMDChWOO3F0
+R8
+32
+R80
+!i10b 1
+R81
+R82
+R83
+!i113 1
+R13
+R14
+Etristatebuffer
+Z84 w1708020716
+R3
+R4
+!i122 65
+R5
+R69
+R70
+l0
+L4 1
+VDonbSUmiKSOmBCHUWem^R3
+!s100 8OLi`2W64cdNfQDIGDmC43
+R8
+32
+Z85 !s110 1708020742
+!i10b 1
+Z86 !s108 1708020742.000000
+R71
+R72
+!i113 1
+R13
+R14
+Aarch_tristate16
+R3
+R4
+DEx4 work 14 tristatebuffer 0 22 DonbSUmiKSOmBCHUWem^R3
+!i122 65
+l13
+R73
+VOIM<>B5]j4O=BW1UMGb9>1
+!s100 =MDFH>Fj`laZ0lPC_zHc^0
+R8
+32
+R85
+!i10b 1
+R86
+R71
+R72
+!i113 1
+R13
+R14

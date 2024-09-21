@@ -1,0 +1,29 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity program_counter is
+    port (
+        clk, rs : in std_logic;
+        input : in std_logic_vector (13 downto 0);
+        output : out std_logic_vector(13 downto 0)
+    );
+end program_counter;
+
+architecture Behavioral of program_counter is
+    signal counter : unsigned(13 downto 0);
+begin
+    process(clk, rs)
+    begin
+        if rs = '1' then
+            counter <= (others => '0'); -- Reset the counter
+        elsif rising_edge(clk) then
+            if input = "11111111111111" then -- Here make the code for what will increment the counter
+                counter <= counter + 1; -- Increment the counter
+            end if;
+        end if;
+    end process;
+
+    output <= std_logic_vector(counter);
+end Behavioral;
+

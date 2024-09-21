@@ -1,0 +1,19 @@
+library iee;
+use iee.std_logic_1164.all;
+use iee.numeric_std.all;
+
+entity topmac is
+	port( clk: in std_logic;
+	reigsterload : in std_logic_vector(7 downto 0);
+	s: in std_logic_vector(9 downto 0);
+	DMD: in std_logic_vector(15 downto 0 );
+	PMD: in std_logic_vector(23 downto 0);
+	AMF: in std_logic_vector( 4 downto 0);
+	R: in std_logic_vector( 15 downto 0);
+	MV: out std_logic;
+	mac_out: out std_logic_vector(15 downto 0)
+	);
+end topmac;
+
+
+	

@@ -1,0 +1,452 @@
+Analysis & Synthesis report for shiftertest
+Thu Feb 08 16:34:31 2024
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Port Connectivity Checks: "orPass:passa"
+ 11. Port Connectivity Checks: "shiftArray:shiftera"
+ 12. Port Connectivity Checks: "mux2to1:Muxa"
+ 13. Port Connectivity Checks: "Register16:Regx"
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Thu Feb 08 16:34:31 2024       ;
+; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                   ; shiftertest                                 ;
+; Top-level Entity Name           ; topLevelBarrelShifter                       ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 1                                           ;
+; Total pins                      ; 86                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                                ;
++---------------------------------------------------------------------------------+-----------------------+--------------------+
+; Option                                                                          ; Setting               ; Default Value      ;
++---------------------------------------------------------------------------------+-----------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6          ;                    ;
+; Top-level entity name                                                           ; topLevelBarrelShifter ; shiftertest        ;
+; Family name                                                                     ; Cyclone V             ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                   ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                    ; On                 ;
+; Enable compact report table                                                     ; Off                   ; Off                ;
+; Restructure Multiplexers                                                        ; Auto                  ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                   ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                   ; Off                ;
+; Preserve fewer node names                                                       ; On                    ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable                ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001          ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993             ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto                  ; Auto               ;
+; Safe State Machine                                                              ; Off                   ; Off                ;
+; Extract Verilog State Machines                                                  ; On                    ; On                 ;
+; Extract VHDL State Machines                                                     ; On                    ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                   ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000                  ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                   ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                    ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                    ; On                 ;
+; Parallel Synthesis                                                              ; On                    ; On                 ;
+; DSP Block Balancing                                                             ; Auto                  ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                    ; On                 ;
+; Power-Up Don't Care                                                             ; On                    ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                   ; Off                ;
+; Remove Duplicate Registers                                                      ; On                    ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                   ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                   ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                   ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                   ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                   ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                    ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                   ; Off                ;
+; Optimization Technique                                                          ; Balanced              ; Balanced           ;
+; Carry Chain Length                                                              ; 70                    ; 70                 ;
+; Auto Carry Chains                                                               ; On                    ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                    ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                   ; Off                ;
+; Auto ROM Replacement                                                            ; On                    ; On                 ;
+; Auto RAM Replacement                                                            ; On                    ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                    ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto                  ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto                  ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                    ; On                 ;
+; Strict RAM Replacement                                                          ; Off                   ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                    ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                   ; Off                ;
+; Auto Resource Sharing                                                           ; Off                   ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                   ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                   ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                   ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                    ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                   ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                    ; On                 ;
+; Report Parameter Settings                                                       ; On                    ; On                 ;
+; Report Source Assignments                                                       ; On                    ; On                 ;
+; Report Connectivity Checks                                                      ; On                    ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                   ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                     ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation    ; Normal compilation ;
+; HDL message level                                                               ; Level2                ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                   ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000                  ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000                  ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                   ; 100                ;
+; Clock MUX Protection                                                            ; On                    ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                   ; Off                ;
+; Block Design Naming                                                             ; Auto                  ; Auto               ;
+; SDC constraint protection                                                       ; Off                   ; Off                ;
+; Synthesis Effort                                                                ; Auto                  ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                    ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                   ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium                ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto                  ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                    ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                    ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                   ; Off                ;
++---------------------------------------------------------------------------------+-----------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                          ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                   ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------+---------+
+; ../topLevelBarrelShifter.vhd     ; yes             ; User VHDL File  ; C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd ;         ;
+; ../shiftArray.vhd                ; yes             ; User VHDL File  ; C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/shiftArray.vhd            ;         ;
+; ../sevenseg.vhd                  ; yes             ; User VHDL File  ; C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/sevenseg.vhd              ;         ;
+; ../registerone.vhd               ; yes             ; User VHDL File  ; C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/registerone.vhd           ;         ;
+; ../orPass.vhd                    ; yes             ; User VHDL File  ; C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/orPass.vhd                ;         ;
+; ../mux2to1.vhd                   ; yes             ; User VHDL File  ; C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/mux2to1.vhd               ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                ;
++---------------------------------------------+------------------------------+
+; Resource                                    ; Usage                        ;
++---------------------------------------------+------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 4                            ;
+;                                             ;                              ;
+; Combinational ALUT usage for logic          ; 6                            ;
+;     -- 7 input functions                    ; 0                            ;
+;     -- 6 input functions                    ; 0                            ;
+;     -- 5 input functions                    ; 0                            ;
+;     -- 4 input functions                    ; 0                            ;
+;     -- <=3 input functions                  ; 6                            ;
+;                                             ;                              ;
+; Dedicated logic registers                   ; 1                            ;
+;                                             ;                              ;
+; I/O pins                                    ; 86                           ;
+;                                             ;                              ;
+; Total DSP Blocks                            ; 0                            ;
+;                                             ;                              ;
+; Maximum fan-out node                        ; shiftArray:shiftera|output~0 ;
+; Maximum fan-out                             ; 10                           ;
+; Total fan-out                               ; 171                          ;
+; Average fan-out                             ; 0.81                         ;
++---------------------------------------------+------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                     ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+-----------------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Entity Name           ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+-----------------------+--------------+
+; |topLevelBarrelShifter     ; 6 (0)               ; 1 (0)                     ; 0                 ; 0          ; 86   ; 0            ; |topLevelBarrelShifter                     ; topLevelBarrelShifter ; work         ;
+;    |Display:ledpass3|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |topLevelBarrelShifter|Display:ledpass3    ; Display               ; work         ;
+;    |Display:ledpass4|      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |topLevelBarrelShifter|Display:ledpass4    ; Display               ; work         ;
+;    |Register16:Regx|       ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |topLevelBarrelShifter|Register16:Regx     ; Register16            ; work         ;
+;    |shiftArray:shiftera|   ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |topLevelBarrelShifter|shiftArray:shiftera ; shiftArray            ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+-----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                    ;
++----------------------------------------------+----------------------------------------+
+; Register name                                ; Reason for Removal                     ;
++----------------------------------------------+----------------------------------------+
+; Register16:Regx|storage[2..4,6,8,11,14]      ; Stuck at GND due to stuck port data_in ;
+; Register16:Regx|storage[1,5,7,9,10,12,13,15] ; Merged with Register16:Regx|storage[0] ;
+; Total Number of Removed Registers = 15       ;                                        ;
++----------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 1     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------+
+; Port Connectivity Checks: "orPass:passa" ;
++--------+-------+----------+--------------+
+; Port   ; Type  ; Severity ; Details      ;
++--------+-------+----------+--------------+
+; input2 ; Input ; Info     ; Stuck at GND ;
+; sror   ; Input ; Info     ; Stuck at GND ;
++--------+-------+----------+--------------+
+
+
++-------------------------------------------------+
+; Port Connectivity Checks: "shiftArray:shiftera" ;
++---------+-------+----------+--------------------+
+; Port    ; Type  ; Severity ; Details            ;
++---------+-------+----------+--------------------+
+; c[7..3] ; Input ; Info     ; Stuck at VCC       ;
+; c[1..0] ; Input ; Info     ; Stuck at VCC       ;
+; c[2]    ; Input ; Info     ; Stuck at GND       ;
++---------+-------+----------+--------------------+
+
+
++------------------------------------------+
+; Port Connectivity Checks: "mux2to1:Muxa" ;
++------+-------+----------+----------------+
+; Port ; Type  ; Severity ; Details        ;
++------+-------+----------+----------------+
+; sel  ; Input ; Info     ; Stuck at GND   ;
++------+-------+----------+----------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "Register16:Regx"      ;
++----------------+-------+----------+--------------+
+; Port           ; Type  ; Severity ; Details      ;
++----------------+-------+----------+--------------+
+; datain[13..12] ; Input ; Info     ; Stuck at VCC ;
+; datain[10..9]  ; Input ; Info     ; Stuck at VCC ;
+; datain[1..0]   ; Input ; Info     ; Stuck at VCC ;
+; datain[4..2]   ; Input ; Info     ; Stuck at GND ;
+; datain[15]     ; Input ; Info     ; Stuck at VCC ;
+; datain[14]     ; Input ; Info     ; Stuck at GND ;
+; datain[11]     ; Input ; Info     ; Stuck at GND ;
+; datain[8]      ; Input ; Info     ; Stuck at GND ;
+; datain[7]      ; Input ; Info     ; Stuck at VCC ;
+; datain[6]      ; Input ; Info     ; Stuck at GND ;
+; datain[5]      ; Input ; Info     ; Stuck at VCC ;
+; load           ; Input ; Info     ; Stuck at VCC ;
++----------------+-------+----------+--------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 1                           ;
+;     CLR               ; 1                           ;
+; arriav_io_obuf        ; 32                          ;
+; arriav_lcell_comb     ; 11                          ;
+;     normal            ; 11                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 3                           ;
+;         3 data inputs ; 3                           ;
+; boundary_port         ; 86                          ;
+;                       ;                             ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 0.46                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Thu Feb 08 16:34:15 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off shiftertest -c shiftertest
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /users/adrian/onedrive - university of miami/ece 455/barrelshifter/tristate.vhd
+    Info (12022): Found design unit 1: tristate16-Arch_tristate16 File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/tristate.vhd Line: 12
+    Info (12023): Found entity 1: tristate16 File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/tristate.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /users/adrian/onedrive - university of miami/ece 455/barrelshifter/toplevelbarrelshifter.vhd
+    Info (12022): Found design unit 1: topLevelBarrelShifter-Arch_topLevel File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 31
+    Info (12023): Found entity 1: topLevelBarrelShifter File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/adrian/onedrive - university of miami/ece 455/barrelshifter/shiftarray.vhd
+    Info (12022): Found design unit 1: shiftArray-Arch_shiftArray File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/shiftArray.vhd Line: 15
+    Info (12023): Found entity 1: shiftArray File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/shiftArray.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /users/adrian/onedrive - university of miami/ece 455/barrelshifter/sevenseg.vhd
+    Info (12022): Found design unit 1: Display-behav_display File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/sevenseg.vhd Line: 11
+    Info (12023): Found entity 1: Display File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/sevenseg.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/adrian/onedrive - university of miami/ece 455/barrelshifter/registerone.vhd
+    Info (12022): Found design unit 1: Register16-Arch_Register16 File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/registerone.vhd Line: 11
+    Info (12023): Found entity 1: Register16 File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/registerone.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /users/adrian/onedrive - university of miami/ece 455/barrelshifter/orpass.vhd
+    Info (12022): Found design unit 1: orPass-Arch_orPass File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/orPass.vhd Line: 24
+    Info (12023): Found entity 1: orPass File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/orPass.vhd Line: 15
+Info (12021): Found 2 design units, including 1 entities, in source file /users/adrian/onedrive - university of miami/ece 455/barrelshifter/mux2to1.vhd
+    Info (12022): Found design unit 1: mux2to1-Arch_mux2to1 File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/mux2to1.vhd Line: 12
+    Info (12023): Found entity 1: mux2to1 File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/mux2to1.vhd Line: 4
+Info (12021): Found 0 design units, including 0 entities, in source file /users/adrian/onedrive - university of miami/ece 455/barrelshifter/barreltop.vhd
+Info (12127): Elaborating entity "topLevelBarrelShifter" for the top level hierarchy
+Info (12128): Elaborating entity "Register16" for hierarchy "Register16:Regx" File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 80
+Warning (10492): VHDL Process Statement warning at registerone.vhd(20): signal "load" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/registerone.vhd Line: 20
+Info (12128): Elaborating entity "mux2to1" for hierarchy "mux2to1:Muxa" File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 82
+Info (12128): Elaborating entity "shiftArray" for hierarchy "shiftArray:shiftera" File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 84
+Warning (10492): VHDL Process Statement warning at shiftArray.vhd(41): signal "storage" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/shiftArray.vhd Line: 41
+Warning (10492): VHDL Process Statement warning at shiftArray.vhd(41): signal "shift" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/shiftArray.vhd Line: 41
+Warning (10492): VHDL Process Statement warning at shiftArray.vhd(44): signal "storage" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/shiftArray.vhd Line: 44
+Warning (10492): VHDL Process Statement warning at shiftArray.vhd(44): signal "shift" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/shiftArray.vhd Line: 44
+Warning (10492): VHDL Process Statement warning at shiftArray.vhd(52): signal "storage" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/shiftArray.vhd Line: 52
+Warning (10492): VHDL Process Statement warning at shiftArray.vhd(52): signal "shift" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/shiftArray.vhd Line: 52
+Warning (10492): VHDL Process Statement warning at shiftArray.vhd(55): signal "storage" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/shiftArray.vhd Line: 55
+Warning (10492): VHDL Process Statement warning at shiftArray.vhd(55): signal "shift" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/shiftArray.vhd Line: 55
+Warning (10492): VHDL Process Statement warning at shiftArray.vhd(63): signal "storage" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/shiftArray.vhd Line: 63
+Warning (10492): VHDL Process Statement warning at shiftArray.vhd(63): signal "shift" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/shiftArray.vhd Line: 63
+Warning (10492): VHDL Process Statement warning at shiftArray.vhd(68): signal "storage" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/shiftArray.vhd Line: 68
+Warning (10492): VHDL Process Statement warning at shiftArray.vhd(68): signal "shift" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/shiftArray.vhd Line: 68
+Warning (10492): VHDL Process Statement warning at shiftArray.vhd(77): signal "storage" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/shiftArray.vhd Line: 77
+Warning (10492): VHDL Process Statement warning at shiftArray.vhd(77): signal "shift" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/shiftArray.vhd Line: 77
+Warning (10492): VHDL Process Statement warning at shiftArray.vhd(82): signal "storage" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/shiftArray.vhd Line: 82
+Warning (10492): VHDL Process Statement warning at shiftArray.vhd(82): signal "shift" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/shiftArray.vhd Line: 82
+Info (12128): Elaborating entity "orPass" for hierarchy "orPass:passa" File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 88
+Info (12128): Elaborating entity "Display" for hierarchy "Display:ledpass1" File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 99
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "RT[0]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 9
+    Warning (13040): bidirectional pin "RT[1]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 9
+    Warning (13040): bidirectional pin "RT[2]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 9
+    Warning (13040): bidirectional pin "RT[3]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 9
+    Warning (13040): bidirectional pin "RT[4]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 9
+    Warning (13040): bidirectional pin "RT[5]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 9
+    Warning (13040): bidirectional pin "RT[6]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 9
+    Warning (13040): bidirectional pin "RT[7]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 9
+    Warning (13040): bidirectional pin "RT[8]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 9
+    Warning (13040): bidirectional pin "RT[9]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 9
+    Warning (13040): bidirectional pin "RT[10]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 9
+    Warning (13040): bidirectional pin "RT[11]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 9
+    Warning (13040): bidirectional pin "RT[12]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 9
+    Warning (13040): bidirectional pin "RT[13]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 9
+    Warning (13040): bidirectional pin "RT[14]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 9
+    Warning (13040): bidirectional pin "RT[15]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 9
+    Warning (13040): bidirectional pin "DMDin[0]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 8
+    Warning (13040): bidirectional pin "DMDin[1]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 8
+    Warning (13040): bidirectional pin "DMDin[2]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 8
+    Warning (13040): bidirectional pin "DMDin[3]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 8
+    Warning (13040): bidirectional pin "DMDin[4]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 8
+    Warning (13040): bidirectional pin "DMDin[5]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 8
+    Warning (13040): bidirectional pin "DMDin[6]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 8
+    Warning (13040): bidirectional pin "DMDin[7]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 8
+    Warning (13040): bidirectional pin "DMDin[8]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 8
+    Warning (13040): bidirectional pin "DMDin[9]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 8
+    Warning (13040): bidirectional pin "DMDin[10]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 8
+    Warning (13040): bidirectional pin "DMDin[11]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 8
+    Warning (13040): bidirectional pin "DMDin[12]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 8
+    Warning (13040): bidirectional pin "DMDin[13]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 8
+    Warning (13040): bidirectional pin "DMDin[14]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 8
+    Warning (13040): bidirectional pin "DMDin[15]" has no driver File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 8
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LSBseg2[2]" is stuck at GND File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 23
+    Warning (13410): Pin "LSBseg2[3]" is stuck at GND File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 23
+    Warning (13410): Pin "MSBseg3[4]" is stuck at GND File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 24
+    Warning (13410): Pin "MSBseg3[5]" is stuck at GND File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 24
+    Warning (13410): Pin "MSBseg4[0]" is stuck at GND File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 25
+    Warning (13410): Pin "MSBseg4[5]" is stuck at GND File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 25
+    Warning (13410): Pin "LSBseg3[2]" is stuck at GND File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 26
+    Warning (13410): Pin "LSBseg3[3]" is stuck at GND File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 26
+    Warning (13410): Pin "LSBseg3[4]" is stuck at GND File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 26
+    Warning (13410): Pin "LSBseg3[5]" is stuck at GND File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 26
+    Warning (13410): Pin "LSBseg4[0]" is stuck at GND File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 27
+    Warning (13410): Pin "LSBseg4[2]" is stuck at GND File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 27
+    Warning (13410): Pin "LSBseg4[3]" is stuck at GND File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 27
+    Warning (13410): Pin "LSBseg4[5]" is stuck at GND File: C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/topLevelBarrelShifter.vhd Line: 27
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 93 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 50 output pins
+    Info (21060): Implemented 32 bidirectional pins
+    Info (21061): Implemented 7 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 66 warnings
+    Info: Peak virtual memory: 4849 megabytes
+    Info: Processing ended: Thu Feb 08 16:34:31 2024
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:28
+
+

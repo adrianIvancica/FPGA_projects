@@ -1,0 +1,141 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+Entity DAG_top is
+	port(  DMD: inout std_logic_vector (15 downto 0); -- DMD storage
+			-- DMA: inout std_logic_vector (13 downto 0);  -- DMA wire
+	   clk, reverse_bit: in std_logic;  -- clk and bit reverse select
+	   sel: in std_logic_vector (6 downto 0); -- selection for we will not be using bits 0-1
+	   --load: in std_logic_vector (11 downto 0) -- load registers 1-12 we will not be using registers L1-L3
+	  -- bc: in std_logic_vector (2 downto 0); -- tristate buffer
+	   address: out std_logic_vector (13 downto 0) -- spits out the addresss
+	);
+end DAG_top;
+
+architecture topdag of DAG_top is
+
+component modulus is
+
+	port ( input, L_reg: in std_logic_vector( 13 downto 0); -- current address, length
+	       output: out std_logic_vector (13 downto 0)-- next address
+	);
+end component;
+
+component adder is
+  Port( I_reg, M_reg : in std_logic_vector(13 downto 0); -- address in I register, Modified offset
+      output : out std_logic_vector(13 downto 0) -- generated address
+  );
+end component;
+
+component bit_rvs is
+
+	port ( input: in std_logic_vector( 13 downto 0);
+		en: in std_logic; -- tells it to reverse or not
+		output: out std_logic_vector (13 downto 0)
+	);
+end component;
+
+component Register14 is
+  Port(
+      clk, load : in std_logic;
+	input : in std_logic_vector(13 downto 0);
+      output : out std_logic_vector(13 downto 0)
+  );
+end component;
+
+component mux4to1 is
+
+	port ( input1, input2, input3, input4: in std_logic_vector( 13 downto 0);-- 4 inputs
+		en: in std_logic_vector (1 downto 0); -- 2 bit select line
+		output: out std_logic_vector (13 downto 0)-- next address
+	);
+end component;
+
+
+component mux2_1 is
+	port( in1 , in2: in std_logic_vector (13 downto 0);
+	sel : in std_logic;
+	output : out std_logic_vector(13 downto 0)
+	);
+end component;
+
+
+component tristate_buffer is
+  Port
+    (datain : in std_logic_vector(13 downto 0);
+    enable : in std_logic;
+    dataout : out std_logic_vector(13 downto 0)
+    );
+	 
+	 end component;
+	 
+ component testMEM IS
+	PORT
+	(
+		address		: IN STD_LOGIC_VECTOR (13 DOWNTO 0);-- feed in the address (DMA)
+		clock		: IN STD_LOGIC  := '1';
+		data		: IN STD_LOGIC_VECTOR (15 DOWNTO 0); -- from DMD bus 
+		wren		: IN STD_LOGIC ;
+		q		: OUT STD_LOGIC_VECTOR (15 DOWNTO 0) -- output to the DAG
+	);
+END component;
+
+--all wire connnections
+-- s1-s4 first four registers
+-- s5 output register for MUX0 s6 will be used for the modulus output
+-- s7 output of mux1, s8-s11 registers for middle registers, 
+signal S1,S2,S3,S4,S5,S6,S7,S8,S9,S10,S11,S12,S13,S14,S15,S16,S17,S18,S19: std_logic_vector(13 downto 0);
+
+begin
+
+-- left to right
+-- first four registers (L0-L3)
+--L0: Register14 port map( clk, load, input, output);
+--L0: Register14 port map( clk, load(0), DMD( 13 downto 0), S1);
+--L1: Register14 port map( clk, load(1), DMD( 13 downto 0), S2);
+--L2: Register14 port map( clk, load(2), DMD( 13 downto 0), S3);
+--L3: Register14 port map( clk, load(3), DMD( 13 downto 0), S4); -- use lower 14 bits from DMD
+L0: Register14 port map( clk, '1', "00000000000000", S1); -- load this
+L1: Register14 port map( clk, '0', "00000000000000", S2); -- demo, do not load these
+L2: Register14 port map( clk, '0', "00000000000000", S3);
+L3: Register14 port map( clk, '0', "00000000000000", S4); -- use lower 14 bits from DMD
+--MUX0: mux4to1 port map(input1, input2, input3, input4, en, output);
+--MUX0: mux4to1 port map(S1,S2,S3,S4,sel(1 downto 0), S5);
+MUX0: mux4to1 port map(S1,S2,S3,S4,"00", S5); -- always select L0
+--modunit: modulus port map(input, L_reg, output);
+modunit: modulus port map(S5, S14, S6);
+--tristate
+
+--miidle section
+--MUX1: Multiplexer (input1, input2, sel, output);
+MUX1: mux2_1 port map(S6, DMD(13 downto 0), '0', S7);
+--I0: Register14 port map( clk, load, input, output);
+I0: Register14 port map( clk, '1', "00000000000000", S8);
+I1: Register14 port map( clk, '1', "00000000001000", S9);
+I2: Register14 port map( clk, '1', "00000000010000", S10);
+I3: Register14 port map( clk, '1', "00000000011000", S11);
+--MUX2:mux4to1 port map(input1, input2, input3, input4, en, output);
+MUX2:mux4to1 port map(S8, S9, S10, S11, sel(4 downto 3), S12);
+-- rvrs: bit_rvs port map(input, en, output);
+--rvrs: bit_rvs port map(S12, reverse_bit, S13);
+
+rvrs: bit_rvs port map(S12, '0', s13);  -- demo no bit reverse
+-- addition: adder port map(I_reg, M_reg, output);
+addition: adder port map(S12, S19, address);
+--tristate
+
+-- right side
+--M0: Register14 port map( clk, load, input, output); use DMDM bus input
+M0: Register14 port map( clk, '1', "00000000000010", S15);
+M1: Register14 port map( clk, '1', "00000000000000", S16);
+M2: Register14 port map( clk, '1',"00000000000100", S17);
+M3: Register14 port map( clk, '1', "00000000000110", S18);
+
+--MUX3: mux4to1 port map(input1, input2, input3, input4, en, output);
+MUX3: mux4to1 port map(S15, S16, S17, S18, sel(6 downto 5), S19);
+--tristate
+--memoryunit: testMEM port map ( DMA, clk, DMD, wren, DMD);
+--memoryunit: testMEM port map ( s14, clk, "0000000000000010", '0', DMD);
+
+end;

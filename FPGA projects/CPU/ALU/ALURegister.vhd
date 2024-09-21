@@ -1,0 +1,28 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+--all inputs are active high
+
+Entity ALUregister is
+  Port(DMD : in std_logic_vector(15 downto 0);
+      load, clk, reset : in std_logic;
+      R : out std_logic_vector(15 downto 0)
+  );
+end ALUregister;
+
+architecture Arch_Register16 of ALUregister is
+  signal storage : std_logic_vector(15 downto 0);
+begin
+  process(clk, reset)
+  begin
+    --if the clock just went high and load is high, then save datain to storage
+
+    if (reset = '1') then
+      storage <= (others => '0');
+    elsif (clk'event and clk = '1' and load = '1') then
+      storage <= DMD;
+    end if;
+  end process;
+
+R <= storage;
+end Arch_Register16;

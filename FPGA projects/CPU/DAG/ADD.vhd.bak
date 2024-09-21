@@ -1,0 +1,23 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+
+--all inputs are active high
+
+Entity adder is
+  Port( I_reg, M_reg : in std_logic_vector(13 downto 0); -- address in I register, Modified offset
+      output : out std_logic_vector(13 downto 0) -- generated address
+  );
+end adder;
+
+architecture adding of adder is
+signal storage: std_logic_vector (13 downto 0);
+begin
+	process(I_reg, M_reg)
+	begin
+	storage <= I_reg + M_reg;
+	end process;
+output <= storage;
+end;
+	

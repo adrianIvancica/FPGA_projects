@@ -1,0 +1,26 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+Entity Register16 is
+  Port(datain : inout std_logic_vector(15 downto 0);
+      load, clk, reset : in std_logic;
+      dataout : out std_logic_vector(15 downto 0)
+  );
+end Register16;
+
+architecture Arch_Register16 of Register16 is
+  signal storage : std_logic_vector(15 downto 0);
+begin
+  process(clk, reset)
+  begin
+    --if the clock just went high and load is high, then save datain to storage
+
+    if (reset = '1') then
+      storage <= (others => '0');
+    elsif (clk'event and clk = '1' and load = '1') then
+      storage <= datain;
+    end if;
+  end process;
+
+dataout <= storage;
+end Arch_Register16;

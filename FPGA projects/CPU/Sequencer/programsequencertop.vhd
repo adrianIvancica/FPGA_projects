@@ -1,0 +1,194 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+Entity programsequencer is
+
+	port ( 	clk, reset: in std_logic; 
+		L : in std_logic_vector (2 downto 0);	--load signal for PC register
+		ASTAT: in std_logic_vector (7 downto 0); -- connect to arithmetic status bits coming from the ALU
+		Sel : in std_logic_vector (1 downto 0); -- goes to mux select
+		tsb_control: in std_logic_vector(2 downto 0); -- controls the tristate buffer
+		PMD: in std_logic_vector (23 downto 0); -- connect to the instruction register
+		PMA: inout std_logic_vector (13 downto 0) -- connect to the PMA, final output of program sequencer goes here
+	);
+end programsequencer;
+
+Architecture structure of programsequencer is
+
+component stack is
+	generic ( 
+		N : integer := 14;
+		M : integer := 4
+	);
+   port (
+        push, pop, reset : in std_logic;
+        data_in : in std_logic_vector(N-1 downto 0);
+        clk : in std_logic;
+        data_out : out std_logic_vector(N-1 downto 0);
+        --index : out std_logic_vector(15 downto 0);
+        overflow, underflow : out std_logic
+    );
+end component stack;
+
+component conditionalLogic is
+port (clk : in std_logic;
+cond_code : IN std_logic_vector(3 downto 0); -- condition code from the instruction
+loop_cond : IN std_logic_vector(3 downto 0); -- condition for the DO Util loop
+status : IN std_logic_vector(7 downto 0);-- data from register ASTAT
+CE : IN std_logic; -- CE condition for the DO Util Loop
+s : IN std_logic; -- control signal to select which condition code to check
+cond : OUT std_logic
+);
+
+end component conditionalLogic;
+
+Component Register_generic is
+	generic(
+		N: integer := 16
+	);
+	Port(datain : in std_logic_vector(N-1 downto 0);
+		load, clk, reset : in std_logic;
+		dataout : out std_logic_vector(N-1 downto 0)
+	);
+end component;
+
+component tristate_generic is
+	generic(
+	  N: integer := 16  --default bit width of the tristate buffer
+	);
+	Port
+	  (enable : in std_logic;
+	  datain : in std_logic_vector(N-1 downto 0);
+	  dataout : out std_logic_vector(N-1 downto 0)
+	  );
+end component;
+
+Component mux2to1_Nbit is
+	generic(
+		N: integer := 16	--default number of bits for each input and outputs
+	);
+	port( x, y : in std_logic_vector (N-1 downto 0);
+	sel : in std_logic;
+	xyout : out std_logic_vector(N-1 downto 0)
+	);
+end component;
+
+component incrementer is
+    port ( clk : in std_logic; -- clk
+	   reset: in std_logic;
+	   incput : in std_logic_vector (13 downto 0);
+	   incr_out: out std_logic_vector (13 downto 0)
+	);
+end component incrementer;
+ 
+component loop_compare is
+    port (  next_inst, last_inst: in std_logic_vector (13 downto 0);
+	    clk: in std_logic;
+	    isLast: out std_logic
+	  );
+end component loop_compare;
+
+component next_address_Selector is 
+	port (Inst		: IN std_logic_vector(23 downto 0);	-- 24 bits instruction
+	      cond		: IN std_logic ;	                -- condition code from the condition logic entity
+	      LastInst	        : IN std_logic;				-- loop_end condition from the loop comparator
+	      rs		: IN std_logic;				-- assuming this is reset
+	      add_sel	        : OUT std_logic_vector(1 downto 0);	-- 00 selects interrupt controller, 01 selects PC stack, 10 selects from the PC incrementer, 11 selects immediate value from instruction
+	      Clk 		: IN std_logic
+);
+end component next_address_Selector ;
+
+component next_address_mux is
+	port( inp1, inp2, inp3, inp4 : in std_logic_vector (13 downto 0);
+	sel : in std_logic_vector (1 downto 0);
+	outp : out std_logic_vector(13 downto 0)
+	);
+end component next_address_mux;
+
+component Stack_Controller is  
+	port( clk,reset: IN std_logic;
+	PMD: IN std_logic_vector( 23 downto 0);     
+	CE, cond: IN std_logic;				-- counter expired and loop condition tested  add_sel: IN std_loglc_vector( l downto 0); - - next address selector
+	add_sel: IN std_logic_vector(1 downto 0);            -- next address selector
+	push, pop: OUT std_logic_vector( 2 downto 0); 	-- Push or pop slgnals for stacks: Count, Status, PC and Loop
+	rs: OUT std_logic_vector( 2 downto 0); 		-- Reset signals for stacks: Count, Status, PC and Loop  overflow: IN std_loglc_vector( 2 downto 0);
+	overflow : in std_logic_vector (2 downto 0);		
+	underflow: IN std_logic_vector( 2 downto 0)
+);
+end component Stack_Controller;
+
+component program_counter is
+    port (
+        clk, rs : in std_logic;
+        input : in std_logic_vector (13 downto 0);
+        output : out std_logic_vector(13 downto 0)
+    );
+end component program_counter;
+
+-- making everything 0 for now
+
+--signal condition_code: std_logic_vector(3 downto 0);
+  signal condition_code: std_logic_vector(3 downto 0);
+--signal address_of_jump: std_logic_vector(13 downto 0);
+  signal address_of_jump: std_logic_vector(13 downto 0);
+--signal address_of_last_instruction_in_loop_AND_termination_condition: std_logic_vector(17 downto 0);
+  signal address_of_last_instruction_in_loop_AND_termination_condition: std_logic_vector(17 downto 0);
+--signal useless: std_logic_vector(15 downto 0);
+  signal useless: std_logic_vector(15 downto 0);
+--signal s5: std_logic_vector(17 downto 0);
+  signal s5: std_logic_vector(17 downto 0);
+--signal s6, s8: std_logic;
+  signal s6, s8, CE: std_logic;
+--signal s7, s10, s11, s12, s15: std_logic_vector(13 downto 0);
+  signal s7, s10, s11, s12, s15: std_logic_vector(13 downto 0);
+--signal s9: std_logic_vector(1 downto 0);
+  signal s9: std_logic_vector(1 downto 0);
+--signal push, pop, rs, Over, Under: std_logic_vector( 2 downto 0);
+  signal push, pop, rs, Over, Under: std_logic_vector( 2 downto 0);
+--signal arrayout : std_logic_vector (23 downto 0);
+  signal pma_sub : std_logic_vector (23 downto 0);
+ -- signal selectout : std_logic_vector(1 downto 0) := "00";
+
+
+begin
+	--condition_code <= IR(3 downto 0); --bottom 4 bits of instruciton typcially contain condition code
+	--address_of_jump <= IR(17 downto 4);	--middle 14 bits of instruction contain address to jump to when the instruction is a jump
+	--address_of_last_instruction_in_loop_AND_termination_condition <= IR(17 downto 0);
+	--pma_sub (13 downto 0) <= PMA;
+
+		-- need to make the pma instructio the input that feeds back into it
+	-- look at what input the instruction register is taking from the mux and then
+	stack_control: Stack_Controller port map( clk, reset, PMD, CE, s8, s9, push, pop, rs, Over, Under);
+	
+	loop_stack: stack
+	generic map( N=> 18, M=>4)
+	port map(push(1), pop(1), rs(1), PMD(17 downto 0), clk, s5, Over(1), Under(1)); -- 1
+	
+	pc_stack : stack
+	generic map( N=> 14, M=>4)
+	port map(push(2), pop(2), rs(2), s11, clk, s12, Over(2), Under(2)); --2
+
+	loop_comparator: loop_compare port map(s7, s5(17 downto 4), clk, s6);
+	
+	PC: Register_generic 
+	generic map(N => 14)
+	port map(s7, L(0), clk, reset, s10);
+
+	inc: incrementer port map(clk, reset, s10, s11);
+
+	next_address_source_select : next_address_Selector port map(PMD, s8, s6, reset, s9, clk);
+
+	cond_logic: conditionalLogic port map(clk, PMD(3 downto 0), s5(3 downto 0), ASTAT, CE, ASTAT(7), s8);
+--				inst for exception, output from pc stack, output from incrementer, output from nothing???
+	nxt_address_mux: next_address_mux port map("00000000000001", s12, s11, PMD(17 downto 4), s9, s15);
+	mux1: mux2to1_Nbit
+	generic map(N => 14)
+	port map(s15, PMA, Sel(0), s7);
+
+	tsb1: tristate_generic
+	generic map(N => 14)
+	port map(tsb_control(0), s15, PMA);
+
+end;

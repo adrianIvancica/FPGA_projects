@@ -1,0 +1,147 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity topLevelBarrelShifter is
+	port(   clk : in std_logic;						 -- clock
+		reset : in std_logic;  						-- reset for all registers. Active high. Asynchronous
+		DMD : inout std_logic_vector(15 downto 0); --in/output to DMD bus
+		R : inout std_logic_vector(15 downto 0);	--in/out to R bus
+		C: in std_logic_vector(7 downto 0);			--number of bits to shift by. 2's complement interpretation. Negative numbers shif tright, positive shift left.
+		highlow : in std_logic;						--0 for putting data in the bottom 16 bits, 1 for putting data in the top 16 bits
+		load : in std_logic_vector(2 downto 0);		--load signal to registers. 
+		sel : in std_logic_vector(3 downto 0);		--select bit for muxes
+		en : in std_logic_vector(3 downto 0);		--enable for tristate buffers
+		SROR : in std_logic;						--0 to OR two values, 1 to PASS the original value (see the orpass to understand)
+		logarith : in std_logic 					--0 for logical shift, 1 for arithmetic shift
+	);
+end topLevelBarrelShifter;
+
+architecture Arch_topLevel of topLevelBarrelShifter is
+
+	Component Register_generic is
+		generic(
+		  N: integer := 16
+		);
+		Port(datain : in std_logic_vector(N-1 downto 0);
+			load, clk, reset : in std_logic;
+			dataout : out std_logic_vector(N-1 downto 0)
+		);
+	  end component;
+
+	  Component mux2to1_Nbit is
+		generic(
+			N: integer := 16	--default number of bits for each input and outputs
+		);
+		port( x, y : in std_logic_vector (N-1 downto 0);
+		sel : in std_logic;
+		xyout : out std_logic_vector(N-1 downto 0)
+		);
+	end component;
+
+	component shiftArray
+		port(C : in std_logic_vector(7 downto 0);
+			input : in std_logic_vector(15 downto 0);
+			output : out std_logic_vector(31 downto 0);
+			highlow : in std_logic;
+			x : in std_logic
+		);
+	end component;
+	
+	component orPass
+		port(input1 : in std_logic_vector(31 downto 0);
+			  input2 : in std_logic_vector(31 downto 0);
+			  sROR : in std_logic;
+			  output1 : out std_logic_vector(15 downto 0);
+			  output2 : out std_logic_vector(15 downto 0)
+		);
+	end component;
+	
+	component tristate_generic is
+		generic(
+		  N: integer := 16  --default bit width of the tristate buffer
+		);
+		Port
+		  (enable : in std_logic;
+		  datain : in std_logic_vector(N-1 downto 0);
+		  dataout : out std_logic_vector(N-1 downto 0)
+		  );
+	end component;
+
+	component Display 
+		port( Input: in std_logic_vector(3 downto 0); --input from calc
+		segmentSeven : out std_logic_vector(6 downto 0)); --7 bit output end Display_Ckt;
+		end component;
+	-- wires that need to connect with each other
+	signal regout : std_logic_vector (15 downto 0);  -- output from register
+	signal muxout : std_logic_vector (15 downto 0);  -- output from mux
+	signal shiftout : std_logic_vector (31 downto 0); -- shift array output
+	signal orpoutputa : std_logic_vector (15 downto 0); -- orpass output1
+	signal orpoutputb : std_logic_vector (15 downto 0); -- orpass output2
+	signal dummy : std_logic_vector (31 downto 0); 
+	signal outputMux1 : std_logic_vector (15 downto 0); -- orpass output1
+	signal outputMux2 : std_logic_vector (15 downto 0); -- orpass output2
+	signal regout1 : std_logic_vector (15 downto 0); -- orpass output1
+	signal regout2 : std_logic_vector (15 downto 0); -- orpass output2
+	signal tristateoutput : std_logic_vector (15 downto 0); -- orpass output2
+	     -- used for demo in order to pass an empty vector through orpass
+
+begin
+	-- for demo purposes tristate is not implemented, dont need it, jus passes the hard coded register through it
+	--     registerone port map(datain, load, clk, reset, dataout); 
+	--Regx : Register16 port map("1011011010100011", '1', clk, reset, regout); 
+	Reg0 : Register_generic
+	generic map( N => 16)
+	port map(DMD, load(0), clk, reset, regout);
+
+	tsb0: tristate_generic
+	generic map(N => 16)
+	port map(en(0),regout,DMD);
+	--     mux2to1 port map(input, input2, sel, output);
+	
+	Mux0 : mux2to1_Nbit
+	generic map (N => 16)
+	port map(regout, R, sel(0), muxout);
+	--         shiftArray port map( C, input, output, highlow, x);
+	shiftera : shiftArray port map(C, muxout, shiftout, highlow , logarith);
+	--      orPass port map(input1, input2, 'SROR', output1, output2);
+	dummy (31 downto 16) <= regout1;
+	dummy (15 downto 0) <= regout2;
+	passa : orPass port map(shiftout, dummy, SROR, orpoutputa, orpoutputb);
+	--outputa is top 16 bits, outputb is bottom 16 bits
+	
+
+	Mux1: mux2to1_Nbit
+	generic map (N => 16)
+	port map(orpoutputa, DMD, sel(1), outputMux1);
+
+	Mux2: mux2to1_Nbit
+	generic map (N => 16)
+	port map(orpoutputb, DMD, sel(2), outputMux2);
+	
+	Reg1: Register_generic
+	generic map( N => 16)
+	port map(outputMux1, load(1), clk, reset, regout1);
+
+	Reg2: Register_generic
+	generic map( N => 16)
+	port map(outputMux2, load(2), clk, reset, regout2);
+
+
+	Mux3: mux2to1_Nbit
+	generic map (N => 16)
+	port map( regout1, regout2, sel(3), tristateoutput);
+	tsb1: tristate_generic
+	generic map(N => 16)
+	port map(en(1),tristateoutput,DMD);
+
+	tsb2: tristate_generic
+	generic map(N => 16)
+	port map(en(2),regout1,R);
+
+	tsb3: tristate_generic
+	generic map(N => 16)
+	port map(en(3),regout2,R);
+
+
+end Arch_topLevel;

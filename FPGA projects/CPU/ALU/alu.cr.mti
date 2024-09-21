@@ -1,0 +1,69 @@
+{C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/registerone.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/registerone.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Register_generic
+-- Compiling architecture Arch_Register of Register_generic
+
+} {} {}} {C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/Display.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/Display.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+-- Compiling entity Display
+-- Compiling architecture behav_display of Display
+
+} {} {}} {C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/TriStateBuffer.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/TriStateBuffer.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tristate_buffer
+-- Compiling architecture Arch_tristate16 of tristate_buffer
+
+} {} {}} {C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/mux2to1.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/mux2to1.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mux2to1_Nbit
+-- Compiling architecture Arch_mux of mux2to1_Nbit
+
+} {} {}} {C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/tristate.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Adrian/OneDrive - University of Miami/ECE 455/Barrelshifter/tristate.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tristate_generic
+-- Compiling architecture Arch_tristate of tristate_generic
+
+} {} {}} {C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/ALUKernel.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/ALUKernel.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ALUKernel
+-- Compiling architecture kernelalu of ALUKernel
+
+} {} {}} {C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/ALURegister.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\Adrian\OneDrive - University of Miami\ECE 455\ALU\ALURegister.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity ALUregister
+-- Compiling architecture Arch_Register16 of ALUregister
+
+} {} {}} {C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/Multiplexer.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Adrian/OneDrive - University of Miami/ECE 455/ALU/Multiplexer.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Multiplexer
+-- Compiling architecture Arch_mux2to1 of Multiplexer
+
+} {} {}}

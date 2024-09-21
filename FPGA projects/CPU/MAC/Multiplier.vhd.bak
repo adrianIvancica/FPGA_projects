@@ -1,0 +1,26 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity multiplier is
+	port( x,y: in std_logic_vector (15 downto 0); -- 16 bit inputs
+	p: out std_logic_vector (31 downto 0)
+	);
+end multiplier;
+
+architecture Multiplication of multiplier is
+	--signal amfupdt : in std_logic_vector(4 downto 0);
+	signal storage : std_logic_vector(31 downto 0);
+
+	begin
+	process(x,y)
+	begin
+	
+	storage <= std_logic_vector(unsigned(x) * (unsigned(y)));
+	--p <= ;
+	--product <= std_logic_vector(unsigned(input_a) * unsigned(input_b)); 
+	end process;
+	p <= storage;
+	end;
+
+	
